@@ -69,7 +69,7 @@ public class DBManage {
 		this.password = password;
 		// 显示中文
 		this.url = "jdbc:mysql://" + host + "/" + database
-				+ "?useUnicode=true&characterEncoding=UTF8";
+				+ "?useUnicode=true&characterEncoding=GB2312";
 //		jdbc:mysql://localhost:3306/order?useUnicode=true&amp;characterEncoding=UTF8&amp;autoReconnect=true&amp;autoReconnectForPools=true"
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver");
@@ -104,7 +104,6 @@ public class DBManage {
 	 */
 	public ResultSet executeQuery(String sql) {
 		ResultSet rs = null;
-
 		try {
 			rs = stmt.executeQuery(sql);
 		} catch (SQLException e) {
@@ -119,7 +118,6 @@ public class DBManage {
 	 * 
 	 * 执行成功则返回true
 	 */
-
 	public boolean executeUpdate(String sql) {
 		boolean v = false;
 		try {
@@ -133,19 +131,4 @@ public class DBManage {
 		}
 	}
 
-	// public static void main(String[] args){
-	// ResultSet rs;
-	// DBManager exe = new DBManager("192.168.0.222","test","root","111");
-	//
-	// rs = exe.executeQuery("SELECT * FROM encodingtest");
-	// try{
-	// while(rs.next()){
-	// System.out.println(rs.getInt("sid") + "    " + rs.getString("str"));
-	//
-	// }
-	// }catch (Exception e){
-	//
-	// }
-	// }
-	//
 }
